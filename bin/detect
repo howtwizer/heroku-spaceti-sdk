@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
 
-if [ -d $1/build_sdk ]; then
-  echo "build_sdk" && exit 0
+if [ -d $1/vendor/gems/spaceti-SDK-0.3.1 ]; then
+  echo "spaceti-SDK-0.3.1 required" && exit 0
 else
   echo "no" && exit 1
 fi
