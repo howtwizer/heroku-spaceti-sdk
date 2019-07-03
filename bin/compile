@@ -29,12 +29,12 @@ function indent() {
   esac
 }
 
-#echo ".-------->"
-#
-#echo $BUILD_DIR
-#
-#ls -al $BUILD_DIR
-#
+echo "BUILD_DIR-------->"
+
+echo $BUILD_DIR
+
+ls -al $BUILD_DIR
+
 #echo $CACHE_DIR
 #
 #ls -al $CACHE_DIR
