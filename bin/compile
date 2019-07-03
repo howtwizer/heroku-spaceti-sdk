@@ -48,7 +48,7 @@ ls -al $BUILD_DIR
 #cd ~
 #ls -al
 
-cd $BUILD_DIR
+cd $BUILD_DIR/build_sdk
 
 rm -rf sdk_build && mkdir sdk_build && cd sdk_build
 cmake -DCMAKE_C_FLAGS=-fPIC -DCMAKE_CXX_FLAGS=-fPIC ../sdk
