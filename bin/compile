@@ -48,4 +48,13 @@ ls -al $BUILD_DIR
 #cd ~
 #ls -al
 
-sh $BUILD_DIR/build.sh
+cd $BUILD_DIR
+
+rm -rf sdk_build && mkdir sdk_build && cd sdk_build
+cmake -DCMAKE_C_FLAGS=-fPIC -DCMAKE_CXX_FLAGS=-fPIC ../sdk
+make -j8 spaceti_core_sdk
+cd ..
+ruby extconf.rb
+make clean
+make
+rm -rf sdk_build
