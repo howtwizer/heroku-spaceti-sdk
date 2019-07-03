@@ -48,7 +48,7 @@ ls -al $BUILD_DIR
 #cd ~
 #ls -al
 
-cd $BUILD_DIR/build_sdk
+cd $BUILD_DIR/vendor/gems/spaceti-SDK-0.3.1/ext/spaceti-sdk
 
 rm -rf sdk_build && mkdir sdk_build && cd sdk_build
 cmake -DCMAKE_C_FLAGS=-fPIC -DCMAKE_CXX_FLAGS=-fPIC ../sdk
@@ -58,3 +58,4 @@ ruby extconf.rb
 make clean
 make
 rm -rf sdk_build
+cp sdk.so $BUILD_DIR/vendor/gems/spaceti-SDK-0.3.1/lib/spaceti
