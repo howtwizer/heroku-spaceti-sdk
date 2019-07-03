@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
 
-if [ -d $1/sdk ]; then
+if [ -d $1/build_sdk ]; then
   echo "build_sdk" && exit 0
 else
   echo "no" && exit 1
