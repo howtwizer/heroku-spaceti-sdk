@@ -29,8 +29,13 @@ function indent() {
   esac
 }
 
+echo "-------->"
+
 echo $BUILD_DIR
 echo $CACHE_DIR
 
 cd .
 ls -al
+
+
+echo "------->"
