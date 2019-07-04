@@ -49,6 +49,7 @@ SDK_GEM_SOURCE_DIR="$BUILD_DIR/vendor/pack"
 if [ -f $SDK_CACHE_DIR/sdk.so ] && cmp -s $SDK_GEM_SOURCE_DIR/$GEM_NAME.gem $SDK_CACHE_DIR/$GEM_NAME.gem ; then
     # Old Aptfile is the same as new
     topic "Reusing cache"
+    topic "Copy SDK to gem lib from cache"
     cp $SDK_CACHE_DIR/sdk.so $BUILD_DIR/vendor/gems/$GEM_NAME/lib/spaceti
 else
     topic "Detected SDK changes, flushing cache"
@@ -67,5 +68,8 @@ else
     make clean
     make
     rm -rf sdk_build
+    topic "Copy SDK to cache"
+    cp sdk.so $SDK_CACHE_DIR
+    topic "Copy SDK to gem lib"
     cp sdk.so $BUILD_DIR/vendor/gems/$GEM_NAME/lib/spaceti
 fi
