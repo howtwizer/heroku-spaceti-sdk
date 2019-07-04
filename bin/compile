@@ -29,8 +29,8 @@ function indent() {
   esac
 }
 
-SDK_GEM_DIR = "$BUILD_DIR/vendor/gems"
-SDK_CACHE_DIR = "$CACHE_DIR/spaceti_sdk/cache"
+SDK_GEM_DIR="$BUILD_DIR/vendor/gems"
+SDK_CACHE_DIR="$CACHE_DIR/spaceti_sdk/cache"
 
 # Getting latest GEM version
 
@@ -42,9 +42,9 @@ function get_latest_gem_dir() {
     echo "${sorted[${#sorted[@]}-1]%?}"
 }
 
-GEM_NAME=$(get_latest_gem_dir SDK_GEM_DIR)
-SDK_BUILD_DIR = "$BUILD_DIR/vendor/gems/$GEM_NAME/ext/spaceti-sdk"
-SDK_GEM_SOURCE_DIR = "$BUILD_DIR/vendor/pack"
+GEM_NAME=$(get_latest_gem_dir $SDK_GEM_DIR)
+SDK_BUILD_DIR="$BUILD_DIR/vendor/gems/$GEM_NAME/ext/spaceti-sdk"
+SDK_GEM_SOURCE_DIR="$BUILD_DIR/vendor/pack"
 
 if [ -f $SDK_CACHE_DIR/sdk.so ] && cmp -s $SDK_GEM_SOURCE_DIR/$GEM_NAME.gem $SDK_CACHE_DIR/$GEM_NAME.gem ; then
     # Old Aptfile is the same as new
