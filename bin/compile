@@ -46,7 +46,7 @@ GEM_NAME=$(get_latest_gem_dir $SDK_GEM_DIR)
 SDK_BUILD_DIR="$BUILD_DIR/vendor/gems/$GEM_NAME/ext/spaceti-sdk"
 SDK_GEM_SOURCE_DIR="$BUILD_DIR/vendor/pack"
 
-if [ -f $SDK_CACHE_DIR/sdk.so ] && cmp -s $SDK_GEM_SOURCE_DIR/$GEM_NAME.gem $SDK_CACHE_DIR/$GEM_NAME.gem ; then
+if [ -f $SDK_CACHE_DIR/sdk.so ] && cmp -s $SDK_GEM_SOURCE_DIR/$GEM_NAME.gem $SDK_CACHE_DIR/$GEM_NAME.gem && cmp -s $BUILD_DIR/.ruby-version $SDK_CACHE_DIR/.ruby-version ; then
     # Old Aptfile is the same as new
     topic "Reusing cache"
     topic "Copy SDK to gem lib from cache"
@@ -59,6 +59,7 @@ else
     mkdir -p  $SDK_CACHE_DIR
 
     cp $SDK_GEM_SOURCE_DIR/$GEM_NAME.gem $SDK_CACHE_DIR
+    cp $BUILD_DIR/.ruby-version $SDK_CACHE_DIR
 
     rm -rf sdk_build && mkdir sdk_build && cd sdk_build
     cmake -DCMAKE_C_FLAGS=-fPIC -DCMAKE_CXX_FLAGS=-fPIC ../sdk
